@@ -20,3 +20,4 @@ themselves are not needed for those two statements and are not yet
 formalized here).
 
 - [Mass gap, mass operator, and vacuum definitions](mass-gap-definitions.md)
+- [The spectral condition, and vacuum-orthogonality](spectral-condition-and-vacuum-structure.md)

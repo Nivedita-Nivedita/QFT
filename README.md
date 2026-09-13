@@ -47,7 +47,7 @@ directly onto this repository's books:
 | [Liouville theory](blueprint/roadmap/liouville-theory/README.md) | Segal's axioms & conformal bootstrap for LCFT | Coarse chapters only |
 | [Quantum Fields and Strings](blueprint/roadmap/quantum-fields-and-strings/README.md) | Not yet chosen | Placeholder; see that page's plan |
 | [Gauge theory and four-manifolds](blueprint/roadmap/gauge-theory-references/README.md) | Not yet chosen | Reference library of 8 texts (Hamilton, Sontz, Frankel, Naber, Donaldson-Kronheimer, Freed-Uhlenbeck, Scorpan) |
-| [Yang-Mills Existence and Mass Gap](blueprint/roadmap/yang-mills-millennium-problem/README.md) | The problem statement itself | Wightman-picture mass gap/vacuum definitions fully proved; a second, independent Haag-Kastler (algebraic) picture is now also formalized. The Millennium conjecture, the clustering theorem, and the AQFT restatement are precisely stated and compile, all three necessarily `sorry` (two are the open problem itself in each picture, one is blocked on Mathlib lacking Stone/SNAG and Paley-Wiener) |
+| [Yang-Mills Existence and Mass Gap](blueprint/roadmap/yang-mills-millennium-problem/README.md) | The problem statement itself | Wightman-picture and Haag-Kastler (algebraic) pictures both formalized, each with the mass gap/vacuum definitions, the spectral condition, and a proved vacuum-orthogonality theorem; the Millennium conjecture, the clustering theorem, and the AQFT restatement are precisely stated and compile, all three necessarily `sorry` (two are the open problem itself in each picture, one is blocked on Mathlib lacking Stone/SNAG and Paley-Wiener) |
 | [Formalization of QFT](blueprint/roadmap/formalization-of-qft/README.md) | Douglas-Hoback-Mei-Nissim's free-field `d=4` OS/GJ-axiom formalization | Already complete elsewhere (Apache 2.0, `mrdouglasny/OSforGFF`, added as a git submodule); independently re-verified in this repo — fresh `lake build` (3863/3863 jobs) and `#print axioms` on its three top-level theorems each showing only `[propext, Classical.choice, Quot.sound]`, no `sorry` |
 
 Each book's own README links its full chapter list, sources, and
@@ -133,14 +133,18 @@ Where things stand right now:
   (Griffiths I/II, monotonicity in the coupling, Lebowitz, the triple-point
   inequality, FKG, Lee-Yang).
 - **Book 5 (Yang-Mills Existence and Mass Gap)**: both the Wightman-picture
-  and a newly added Haag-Kastler/AQFT-picture formalization of the
-  Millennium Problem statement compile. 2 supporting lemmas are fully
-  proved (`massOperator_vac_eq_zero` in each picture's setup); the
-  Millennium conjecture itself, the clustering-from-mass-gap theorem, and
-  the AQFT restatement are `sorry` by necessity — the first two because
-  they *are* the open problem or depend on it, the clustering theorem
-  additionally because Mathlib currently lacks Stone/SNAG and Paley-Wiener
-  theory it would need.
+  and a Haag-Kastler/AQFT-picture formalization of the Millennium Problem
+  statement compile. 4 supporting results are fully proved
+  (`massOperator_vac_eq_zero`; the spectral condition and
+  `vacuum_orthogonal_range` in each picture — the vacuum is orthogonal to
+  the range of the Hamiltonian whenever positivity of the energy holds);
+  the AQFT picture additionally records (as definitions, not proved
+  theorems) the standard cyclic/separating-vacuum axioms. The Millennium
+  conjecture itself, the clustering-from-mass-gap theorem, and the AQFT
+  restatement are `sorry` by necessity — the first two because they *are*
+  the open problem or depend on it, the clustering theorem additionally
+  because Mathlib currently lacks Stone/SNAG and Paley-Wiener theory it
+  would need.
 - **Book 6 (Formalization of QFT / OSforGFF)**: not our own formalization —
   an existing, independently-authored, zero-`sorry` Lean proof that the
   free `d=4` Euclidean field satisfies the Glimm-Jaffe/OS axioms, pulled in

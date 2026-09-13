@@ -36,6 +36,7 @@ for different reasons:
 namespace QuantumPhysicsLean.YangMillsMillenniumProblem
 
 open MeasureTheory
+open scoped InnerProductSpace
 
 variable {𝓗 : Type*} [NormedAddCommGroup 𝓗] [InnerProductSpace ℂ 𝓗] [CompleteSpace 𝓗]
 
@@ -78,6 +79,33 @@ theorem massOperator_vac_eq_zero (Ham : 𝓗 →L[ℂ] 𝓗) (P : Fin 3 → 𝓗
     rw [hM.2.2]
     simp [hHvac, hPvac]
   simpa [ContinuousLinearMap.mul_apply] using hsq
+
+/-- **The spectral condition** (positivity of the energy): `Ham` is
+self-adjoint (so it is a genuine observable, and its kernel and range are
+orthogonal complements) and its spectrum is real and non-negative. This is
+part of the Wightman axiom system (Streater-Wightman, or W1's spectral
+clause) and of Haag-Kastler's HK-picture axioms alike (Haag, *Local
+Quantum Physics*, §II.5.1); it is strictly weaker than having a mass gap
+-- a massless (but still positive-energy) theory satisfies it too. -/
+def SatisfiesSpectralCondition (Ham : 𝓗 →L[ℂ] 𝓗) : Prop :=
+  IsSelfAdjoint Ham ∧ ∀ z ∈ spectrum ℂ Ham, 0 ≤ z.re ∧ z.im = 0
+
+/-- **The vacuum is orthogonal to the range of the Hamiltonian.** Since a
+self-adjoint operator is normal, its kernel and range are orthogonal
+complements (`IsStarNormal.orthogonal_range`); the vacuum lies in `ker Ham`
+by definition (`IsVacuum`), so it is orthogonal to every vector of the form
+`Ham w` -- no state obtained by acting with the Hamiltonian has any overlap
+with the vacuum. This is a genuine (if elementary) structural consequence
+of the spectral condition, not a restatement of it, and it holds regardless
+of whether the theory has a mass gap. -/
+theorem vacuum_orthogonal_range (Ham : 𝓗 →L[ℂ] 𝓗) (hspec : SatisfiesSpectralCondition Ham)
+    (vac : 𝓗) (hvac : IsVacuum Ham vac) (w : 𝓗) :
+    ⟪Ham w, vac⟫_ℂ = 0 := by
+  have hnormal : IsStarNormal Ham := hspec.1.isStarNormal
+  have hmem : vac ∈ Ham.rangeᗮ := by
+    rw [ContinuousLinearMap.IsStarNormal.orthogonal_range hnormal]
+    simpa using hvac.2
+  exact (Submodule.mem_orthogonal _ _).mp hmem (Ham w) ⟨w, rfl⟩
 
 /-- **The Yang-Mills Existence and Mass Gap problem** (Jaffe-Witten §4, the
 boxed statement): a non-trivial quantum field theory exists with a mass
@@ -182,6 +210,42 @@ def HaagKastlerNet.HasMassGap (net : HaagKastlerNet Region G Aalg)
     (timeMap : ℝ →* G) (Δ : ℝ) : Prop :=
   ∃ (𝓗 : Type) (_ : NormedAddCommGroup 𝓗) (_ : InnerProductSpace ℂ 𝓗) (_ : CompleteSpace 𝓗)
     (rep : net.CovariantRep timeMap 𝓗), YangMillsMillenniumProblem.HasMassGap rep.Ham Δ
+
+/-- A covariant representation **satisfies the spectral condition** if its
+Hamiltonian does, in the sense already defined for the Wightman picture. -/
+def HaagKastlerNet.CovariantRep.SatisfiesSpectralCondition
+    (net : HaagKastlerNet Region G Aalg) (rep : net.CovariantRep timeMap 𝓗) : Prop :=
+  YangMillsMillenniumProblem.SatisfiesSpectralCondition rep.Ham
+
+/-- **The vacuum of a covariant representation is orthogonal to the range of
+its Hamiltonian**, given the spectral condition: the Haag-Kastler-picture
+instance of `vacuum_orthogonal_range` above. -/
+theorem HaagKastlerNet.CovariantRep.vacuum_orthogonal_range
+    (net : HaagKastlerNet Region G Aalg) (rep : net.CovariantRep timeMap 𝓗)
+    (hspec : rep.SatisfiesSpectralCondition) (w : 𝓗) :
+    ⟪rep.Ham w, rep.vac⟫_ℂ = 0 :=
+  YangMillsMillenniumProblem.vacuum_orthogonal_range rep.Ham hspec rep.vac rep.vacuum w
+
+/-- The vacuum **is cyclic** for the local algebra of region `B`: acting on
+it with that algebra's representatives produces a dense subspace of `𝓗`.
+This is one of the two standard vacuum-structure axioms in algebraic QFT
+(Haag, *Local Quantum Physics*, §III.3); it is what the Reeh-Schlieder
+theorem establishes for every non-empty open region in the concrete
+Wightman setting, but it is recorded here only as a definition -- no proof
+is attempted, since Reeh-Schlieder's actual argument (analytic continuation
+of vacuum expectation values) is well beyond what this net-level
+formalization currently has the tools to reach. -/
+def HaagKastlerNet.CovariantRep.IsCyclicVacuumFor
+    (net : HaagKastlerNet Region G Aalg) (rep : net.CovariantRep timeMap 𝓗) (B : Region) : Prop :=
+  Dense ((Submodule.span ℂ ((fun a => rep.π a rep.vac) '' (net.alg B : Set Aalg))) : Set 𝓗)
+
+/-- The vacuum **is separating** for the local algebra of region `B`: no
+nonzero element of that algebra annihilates it. The second of the two
+standard vacuum-structure axioms (Haag, *Local Quantum Physics*, §III.3),
+recorded here as a definition for the same reason as `IsCyclicVacuumFor`. -/
+def HaagKastlerNet.CovariantRep.IsSeparatingVacuumFor
+    (net : HaagKastlerNet Region G Aalg) (rep : net.CovariantRep timeMap 𝓗) (B : Region) : Prop :=
+  ∀ a ∈ net.alg B, rep.π a rep.vac = 0 → a = 0
 
 /-- **The Yang-Mills Existence and Mass Gap problem, in the Haag-Kastler
 picture**: the algebraic counterpart of `yang_mills_existence_and_mass_gap`

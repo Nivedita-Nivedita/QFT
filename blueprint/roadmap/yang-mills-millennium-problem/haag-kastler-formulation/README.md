@@ -21,6 +21,13 @@ given for the Wightman picture.
 
 - [Covariant representations and mass gap](covariant-representation.md)
 
+A representation's vacuum is orthogonal to the range of its Hamiltonian
+whenever the spectral condition holds (a genuinely proved theorem), and two
+standard further vacuum-structure axioms -- cyclicity and separation --
+are recorded as definitions.
+
+- [Vacuum structure of a covariant representation](vacuum-structure.md)
+
 The AQFT-picture restatement of the boxed conjecture. `sorry`-terminated
 for the same reason its Wightman-picture counterpart is: it is the open
 problem, not a proof attempt.

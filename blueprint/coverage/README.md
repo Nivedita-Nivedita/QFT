@@ -19,10 +19,10 @@
 | Liouville: Segal's axioms (paper [4]) | `DECOMPOSED` | Target chapter; [chapter page](../roadmap/liouville-theory/segals-axioms/README.md); not yet split into leaf statements |
 | Quantum Fields and Strings (AMS, 2 vols) | `DECOMPOSED` | [Chapter page](../roadmap/quantum-fields-and-strings/README.md); scope not yet chosen, see that page's plan |
 | Gauge theory and four-manifolds reference library (8 texts) | `DECOMPOSED` | [Chapter page](../roadmap/gauge-theory-references/README.md); catalogued only, no formalization target chosen |
-| Yang-Mills problem: axiomatic QFT (Jaffe-Witten §3-4, 6.2) | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/axiomatic-qft/README.md); not yet split into leaf statements |
+| Yang-Mills problem: axiomatic QFT (Jaffe-Witten §3-4, 6.2) | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/axiomatic-qft/README.md); mass gap/vacuum definitions and the spectral condition are formalized, `massOperator_vac_eq_zero` and `vacuum_orthogonal_range` are proved |
 | Yang-Mills problem: the Millennium statement (§4) | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/millennium-statement/README.md); not yet split into leaf statements |
 | Yang-Mills problem: clustering from a mass gap (§5) | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/clustering-theorem/README.md); not yet split into leaf statements |
-| Yang-Mills problem: Haag-Kastler (algebraic) formulation | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/haag-kastler-formulation/README.md); net and mass-gap definitions formalized, Millennium restatement necessarily `sorry` |
+| Yang-Mills problem: Haag-Kastler (algebraic) formulation | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/haag-kastler-formulation/README.md); net, mass-gap, and vacuum-structure definitions formalized (one proved theorem, `vacuum_orthogonal_range`), Millennium restatement necessarily `sorry` |
 | Formalization of QFT (Douglas-Hoback-Mei-Nissim) | `DECOMPOSED` | [Chapter page](../roadmap/formalization-of-qft/README.md); read only, no action taken yet |
 
 <!-- AUTHORING NOTES — these comments are not published.
