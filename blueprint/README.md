@@ -23,6 +23,11 @@ current list. As of this writing:
    textbooks; see
    [sources/gauge-theory-references/](sources/gauge-theory-references/).
    No formalization target chosen.
+5. **Yang-Mills Existence and Mass Gap** — the self-contained mathematical
+   content of Jaffe and Witten's Clay Millennium Problem statement itself;
+   see [sources/yang-mills-millennium-problem/](sources/yang-mills-millennium-problem/).
+   Definitions fully proved; the conjecture and its one stated theorem are
+   precisely formalized but necessarily `sorry`.
 
 - [Roadmap](roadmap/README.md) — the book: chapters, statements, and their
   dependencies.

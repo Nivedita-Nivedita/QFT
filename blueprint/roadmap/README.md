@@ -19,6 +19,11 @@ milestone chapters.
    — eight standard textbooks (Hamilton; Sontz; Frankel; Naber; Donaldson-Kronheimer;
    Freed-Uhlenbeck; Scorpan) catalogued for later use. No formalization
    target chosen.
+5. [Yang-Mills Existence and Mass Gap](yang-mills-millennium-problem/README.md)
+   — the self-contained mathematical content of Jaffe and Witten's Clay
+   Millennium Problem statement itself: the axiomatic definitions, the
+   conjecture (formalized, necessarily unproved), and the one theorem the
+   document proves outright (mass gap implies clustering).
 
 More books and papers are added here over time; each gets its own chapter
 directory under `roadmap/`, its own `sources/` notes, and its own rows in

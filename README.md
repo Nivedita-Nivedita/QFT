@@ -43,6 +43,7 @@ directly onto this repository's books:
 | [Liouville theory](blueprint/roadmap/liouville-theory/README.md) | Segal's axioms & conformal bootstrap for LCFT | Coarse chapters only |
 | [Quantum Fields and Strings](blueprint/roadmap/quantum-fields-and-strings/README.md) | Not yet chosen | Placeholder; see that page's plan |
 | [Gauge theory and four-manifolds](blueprint/roadmap/gauge-theory-references/README.md) | Not yet chosen | Reference library of 8 texts (Hamilton, Sontz, Frankel, Naber, Donaldson-Kronheimer, Freed-Uhlenbeck, Scorpan) |
+| [Yang-Mills Existence and Mass Gap](blueprint/roadmap/yang-mills-millennium-problem/README.md) | The problem statement itself | Mass gap/vacuum definitions fully proved; the Millennium conjecture and the clustering theorem are precisely stated and compile, both necessarily `sorry` (one because it's the open problem, one because Mathlib lacks Stone/SNAG and Paley-Wiener) |
 
 Each book's own README links its full chapter list, sources, and
 dependencies. Start at [`blueprint/README.md`](blueprint/README.md) for the
