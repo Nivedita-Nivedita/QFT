@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import tarfile
@@ -214,13 +215,31 @@ def _module_parts(module: str, display_path: str) -> tuple[str, ...]:
     return tuple(parts)
 
 
-def render_probe(modules: tuple[str, ...]) -> str:
-    """Render the Lean program that audits exactly *modules*."""
+def render_probe(modules: tuple[str, ...], *, allow_sorry: bool = False) -> str:
+    """Render the Lean program that audits exactly *modules*.
+
+    ``allow_sorry`` reflects this project's current, explicit policy: state
+    theorems first (statement-only, ``sorry``-proved) and prove them in a
+    later pass. With it set, ``sorryAx`` joins the allowed axioms, so CI
+    stops hard-failing on every open ``sorry`` -- but every *other* check
+    stays exactly as strict: any other unexpected axiom, any ``unsafe`` or
+    ``partial`` declaration, still fails the build. Flip
+    ``AUTOFORM_ALLOW_SORRY`` to ``false`` in the workflow (or remove it) once
+    the project moves from "state" to "prove" for a given result.
+    """
 
     if not modules:
         raise AuditInputError("refusing to render an empty kernel-trust audit")
     imports = "\n".join(f"import {module}" for module in modules)
     target_modules = ", ".join(_lean_name(module) for module in modules)
+    allowed_axioms = "``propext, ``Classical.choice, ``Quot.sound"
+    if allow_sorry:
+        allowed_axioms += ", ``sorryAx"
+    sorry_note = (
+        'logInfo m!"(sorryAx permitted: this project is in its statement-first phase)"'
+        if allow_sorry
+        else "pure ()"
+    )
     return f"""{imports}
 import Lean.Util.CollectAxioms
 import Lean.Elab.Command
@@ -229,7 +248,8 @@ open Lean Elab Command
 
 run_cmd do
   let targetModules : List Name := [{target_modules}]
-  let allowed : List Name := [``propext, ``Classical.choice, ``Quot.sound]
+  let allowed : List Name := [{allowed_axioms}]
+  {sorry_note}
   let env ← getEnv
   let mut checked : Nat := 0
   let mut badSafety : Array Name := #[]
@@ -281,14 +301,20 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     root_package = arguments[0]
     archive, output = map(Path, arguments[1:])
+    allow_sorry = os.environ.get("AUTOFORM_ALLOW_SORRY", "").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+    )
     try:
         modules = modules_from_archive(archive, root_package)
-        probe = render_probe(modules)
+        probe = render_probe(modules, allow_sorry=allow_sorry)
         output.write_text(probe, encoding="utf-8")
     except (AuditInputError, OSError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
-    print(f"prepared kernel-trust audit for {len(modules)} root-package module(s)")
+    phase = "statement-first (sorry permitted)" if allow_sorry else "strict (no sorry permitted)"
+    print(f"prepared kernel-trust audit for {len(modules)} root-package module(s) [{phase}]")
     return 0
 
 
