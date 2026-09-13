@@ -30,5 +30,5 @@ exponentials.
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Definition 4.5.2, Proposition 4.5.3,
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Definition 4.5.2, Proposition 4.5.3,
   and Theorem 4.5.1', p. 66-69.

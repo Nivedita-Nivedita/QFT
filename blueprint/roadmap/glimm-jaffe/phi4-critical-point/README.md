@@ -1,7 +1,7 @@
 # The φ⁴ critical point
 
 Source: Glimm-Jaffe, Chapter 17, pp. 339-355. This is the project's target
-chapter; see [sources/glimm-jaffe.md](../../sources/glimm-jaffe.md) for the
+chapter; see [sources/glimm-jaffe.md](../../../sources/glimm-jaffe.md) for the
 full section list.
 
 Studies the interaction `V(φ) = λφ⁴ + σφ² - μφ` (`λ > 0`) and defines the

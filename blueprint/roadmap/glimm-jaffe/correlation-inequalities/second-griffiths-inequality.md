@@ -27,4 +27,4 @@ the inequality then follows by applying the first Griffiths inequality to
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Lemma 4.1.2 and Theorem 4.1.3, p. 58-59.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Lemma 4.1.2 and Theorem 4.1.3, p. 58-59.

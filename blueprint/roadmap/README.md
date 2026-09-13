@@ -1,32 +1,14 @@
-# Glimm-Jaffe: Quantum Physics - phi^4 Theory roadmap
+# QFT roadmap
 
-Formalizing the mathematical path to Chapter 17 of Glimm and Jaffe,
-*Quantum Physics: A Functional Integral Point of View* (2nd ed.): the
-construction of the two-dimensional `P(φ)₂` Euclidean quantum field and the
-proof that the `φ⁴` interaction has a critical point `σ_c` with a genuine
-phase transition. See [sources/glimm-jaffe.md](../sources/glimm-jaffe.md) for
-the book's exact page ranges.
+This project formalizes multiple books and papers in mathematical quantum
+field theory. Each is its own book below, with its own sources and coarse
+milestone chapters.
 
-This is a coarse milestone plan, not yet decomposed into pull-request-sized
-statements. Each milestone below is a chapter directory; expanding one into
-leaf declarations is future work.
+## Books
 
-## Chapters
-
-1. [Correlation inequalities](correlation-inequalities/README.md) — Griffiths,
-   FKG, and Lee-Yang, used throughout to control phases and analyticity.
-2. [Covariance operators](covariance-operators/README.md) — the free
-   Euclidean propagator and its boundary-condition dependence.
-3. [Quantization on function space](function-space-quantization/README.md) —
-   constructing the interacting measure and its perturbative renormalization.
-4. [Dimension-independent estimates](dimension-independent-estimates/README.md)
-   — bounds that let the ultraviolet and infinite-volume cutoffs be removed.
-5. [Regularity and axioms](regularity-and-axioms/README.md) — the existence
-   theorem: the cutoff-free `P(φ)₂` field satisfies the Euclidean axioms.
-6. [Phase transitions](phase-transitions/README.md) — symmetry breaking and
-   the existence of a phase transition for very negative `σ`.
-7. [The cluster expansion](cluster-expansion/README.md) — convergent
-   expansion away from the critical point, used for the high-temperature
-   (large `σ`) regime.
-8. [The φ⁴ critical point](phi4-critical-point/README.md) — the target
-   chapter: existence of `σ_c` and the critical exponents.
+1. [Glimm-Jaffe: Quantum Physics](glimm-jaffe/README.md) — J. Glimm and
+   A. Jaffe, *Quantum Physics: A Functional Integral Point of View* (2nd
+   ed.), targeting Chapter 17, "The φ⁴ Critical Point."
+2. [Liouville theory](liouville-theory/README.md) — the David-Guillarmou-Kupiainen-Rhodes-Vargas
+   papers on the probabilistic construction of Liouville CFT, targeting
+   Segal's axioms and the conformal bootstrap.

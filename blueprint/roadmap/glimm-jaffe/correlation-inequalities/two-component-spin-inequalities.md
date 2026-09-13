@@ -24,4 +24,4 @@ even function plus a ferromagnetic term `-4λαβγδ`. Two special cases give
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Theorem 4.7.1 and Corollary 4.7.2, p. 71-72.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Theorem 4.7.1 and Corollary 4.7.2, p. 71-72.

@@ -24,4 +24,4 @@ result to the Ising model, and the same idea is used in Part II to show the
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Proposition 4.6.1 and Theorem 4.6.2, p. 69-70.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Proposition 4.6.1 and Theorem 4.6.2, p. 69-70.

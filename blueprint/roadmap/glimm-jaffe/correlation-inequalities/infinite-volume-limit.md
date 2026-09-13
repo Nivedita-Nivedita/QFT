@@ -28,4 +28,4 @@ added.
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Propositions 4.2.1-4.2.2 and Theorem 4.2.3, p. 59-60.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Propositions 4.2.1-4.2.2 and Theorem 4.2.3, p. 59-60.

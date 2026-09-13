@@ -26,4 +26,4 @@ variables. Specializing to twofold (Lebowitz) inequalities in the rotated
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Theorem 4.3.1, Corollaries 4.3.2 and 4.3.4, p. 60-63.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Theorem 4.3.1, Corollaries 4.3.2 and 4.3.4, p. 60-63.

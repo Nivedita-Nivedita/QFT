@@ -26,4 +26,4 @@ nonnegative.
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Theorem 4.1.1, p. 58.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Theorem 4.1.1, p. 58.

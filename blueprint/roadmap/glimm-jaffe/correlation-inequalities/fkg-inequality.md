@@ -34,4 +34,4 @@ FKG itself.
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Theorem 4.4.1, p. 65.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Theorem 4.4.1, p. 65.

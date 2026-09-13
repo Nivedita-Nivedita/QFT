@@ -22,4 +22,4 @@ for the critical exponent estimates of Chapter 17.
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Corollaries 4.3.3 and 4.3.5, p. 62-64.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Corollaries 4.3.3 and 4.3.5, p. 62-64.

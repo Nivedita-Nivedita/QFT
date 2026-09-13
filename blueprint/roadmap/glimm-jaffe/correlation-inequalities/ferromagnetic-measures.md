@@ -29,4 +29,4 @@ This shared setup underlies every correlation inequality in this chapter.
 
 ## Sources
 
-- [Glimm-Jaffe](../../sources/glimm-jaffe.md), Ch. 4.1, eqs. (4.1.1)-(4.1.8), p. 57-58.
+- [Glimm-Jaffe](../../../sources/glimm-jaffe.md), Ch. 4.1, eqs. (4.1.1)-(4.1.8), p. 57-58.

@@ -2,14 +2,21 @@
 
 | Area | Coverage | Evidence |
 | --- | --- | --- |
-| Ch. 4 Correlation inequalities and Lee-Yang (pp. 56-72) | `DECOMPOSED` | [Chapter page](../roadmap/correlation-inequalities/README.md); not yet split into leaf statements |
-| Ch. 7 Covariance operators (pp. 159-179) | `DECOMPOSED` | [Chapter page](../roadmap/covariance-operators/README.md); not yet split into leaf statements |
-| Ch. 8-9 Quantization on function space (pp. 180-228) | `DECOMPOSED` | [Chapter page](../roadmap/function-space-quantization/README.md); not yet split into leaf statements |
-| Ch. 10-11 Dimension-independent estimates (pp. 229-253) | `DECOMPOSED` | [Chapter page](../roadmap/dimension-independent-estimates/README.md); not yet split into leaf statements |
-| Ch. 12 Regularity and axioms (pp. 255-268) | `DECOMPOSED` | [Chapter page](../roadmap/regularity-and-axioms/README.md); not yet split into leaf statements |
-| Ch. 16 Phase transitions (pp. 316-338) | `DECOMPOSED` | [Chapter page](../roadmap/phase-transitions/README.md); not yet split into leaf statements |
-| Ch. 18 The cluster expansion (pp. 356-378) | `DECOMPOSED` | [Chapter page](../roadmap/cluster-expansion/README.md); not yet split into leaf statements |
-| Ch. 17 The φ⁴ critical point (pp. 339-355) | `DECOMPOSED` | Target chapter; [chapter page](../roadmap/phi4-critical-point/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 4 Correlation inequalities and Lee-Yang (pp. 56-72) | `DECOMPOSED` | [Chapter page](../roadmap/glimm-jaffe/correlation-inequalities/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 7 Covariance operators (pp. 159-179) | `DECOMPOSED` | [Chapter page](../roadmap/glimm-jaffe/covariance-operators/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 8-9 Quantization on function space (pp. 180-228) | `DECOMPOSED` | [Chapter page](../roadmap/glimm-jaffe/function-space-quantization/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 10-11 Dimension-independent estimates (pp. 229-253) | `DECOMPOSED` | [Chapter page](../roadmap/glimm-jaffe/dimension-independent-estimates/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 12 Regularity and axioms (pp. 255-268) | `DECOMPOSED` | [Chapter page](../roadmap/glimm-jaffe/regularity-and-axioms/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 16 Phase transitions (pp. 316-338) | `DECOMPOSED` | [Chapter page](../roadmap/glimm-jaffe/phase-transitions/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 18 The cluster expansion (pp. 356-378) | `DECOMPOSED` | [Chapter page](../roadmap/glimm-jaffe/cluster-expansion/README.md); not yet split into leaf statements |
+| Glimm-Jaffe: Ch. 17 The φ⁴ critical point (pp. 339-355) | `DECOMPOSED` | Target chapter; [chapter page](../roadmap/glimm-jaffe/phi4-critical-point/README.md); not yet split into leaf statements |
+| Liouville: Gaussian free field (survey [5] Sec. 2.1-2.3) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/gaussian-free-field/README.md); not yet split into leaf statements |
+| Liouville: Gaussian multiplicative chaos (survey [5] Sec. 2.4-2.6, 3.1-3.3) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/gaussian-multiplicative-chaos/README.md); not yet split into leaf statements |
+| Liouville: Moments and singular integrals (survey [5] Sec. 2.7, 3.4-3.7) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/moments-and-singular-integrals/README.md); not yet split into leaf statements |
+| Liouville: Correlators on the sphere (paper [1]) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/liouville-correlators-on-the-sphere/README.md); not yet split into leaf statements |
+| Liouville: The DOZZ formula (paper [2]) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/dozz-formula/README.md); not yet split into leaf statements |
+| Liouville: Conformal bootstrap (paper [3]) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/conformal-bootstrap/README.md); not yet split into leaf statements |
+| Liouville: Segal's axioms (paper [4]) | `DECOMPOSED` | Target chapter; [chapter page](../roadmap/liouville-theory/segals-axioms/README.md); not yet split into leaf statements |
 
 <!-- AUTHORING NOTES — these comments are not published.
 
