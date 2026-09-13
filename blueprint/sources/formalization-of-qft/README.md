@@ -33,6 +33,21 @@ via `#guard_msgs` on every `lake build`) and a source-level script
 Note it pins `lean-toolchain` to `leanprover/lean4:v4.33.0-rc1` (a release
 candidate), one point release behind this project's `v4.33.1`.
 
+**Fully rebuilt from source and re-checked, independently of the above.**
+`lake update && lake build` in the submodule succeeds completely (3863/3863
+jobs, including their own `OSforGFF.Guardrails` enforcement module), and
+
+```
+#print axioms OSforGFF.gaussianFreeField_satisfies_all_OS_axioms_generic
+#print axioms OSforGFF.gaussianFreeField_satisfies_all_OS_axioms_of_dim
+#print axioms OSforGFF.gaussianFreeField_satisfies_all_OS_axioms_dim4
+```
+
+each report exactly `[propext, Classical.choice, Quot.sound]` — confirmed
+directly against a fresh build on this machine, not merely quoted from the
+repository's own `AXIOM_AUDIT.md`. The `d = 4` instance is the one book 1
+would actually need.
+
 - Constructs the massive Gaussian Free Field as a probability measure on
   tempered distributions (via the Minlos theorem) and proves it satisfies
   all five OS axioms, generically for spacetime dimension `d ≥ 2`, with
