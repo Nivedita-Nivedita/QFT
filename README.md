@@ -7,6 +7,34 @@ and following the same blueprint conventions as
 papers are added over time as their own tracks, rather than this repository
 being scoped to a single text.
 
+## Guiding problem
+
+Formalization priorities in this repository are guided by
+[**Yang–Mills Existence and Mass Gap**](docs/yang-mills-existence-and-mass-gap.md),
+Arthur Jaffe and Edward Witten's Clay Mathematics Institute Millennium
+Prize Problem description. Its own account of what the problem needs maps
+directly onto this repository's books:
+
+- The problem's §6.2-6.4 point to Glimm-Jaffe-Spencer-style constructive
+  QFT (correlation inequalities, cluster expansions, the `P(φ)₂` and `φ⁴`
+  constructions) as the established toolkit for building nonlinear QFTs —
+  **book 1**.
+- §6.4 singles out Brydges-Fröhlich-Seiler's 2D abelian Higgs model as "the
+  only complete example of an interacting gauge theory satisfying the
+  axioms" — a concrete, far more tractable gauge-theory stepping stone than
+  full 4D Yang–Mills.
+- The problem is stated in the Wightman/Osterwalder-Schrader axiomatic
+  framework (§3-4); Segal's alternative functorial axioms, targeted by
+  **book 2**, are a rigorously-established alternative axiomatic framework
+  for a genuinely interacting 2D CFT, relevant background for what
+  "axiomatic properties at least as strong as" a QFT should mean.
+- §6.5's lattice gauge theory and Balaban's renormalization-group program is
+  the closest existing approach to the actual 4D Yang–Mills construction,
+  a natural place to look when scoping **book 3**.
+- The differential geometry of connections, curvature, and principal
+  bundles that the Yang–Mills Lagrangian (1) is built from is exactly the
+  content of **book 4**'s reference library.
+
 ## Books
 
 | Book | Target | Status |
