@@ -15,9 +15,8 @@ are within reach of Mathlib's existing probability and order theory.
   [second](second-griffiths-inequality.md) Griffiths inequalities give the
   positivity of moments and pair correlations for ferromagnetic
   interactions.
-- As a first application, [monotonicity and the infinite-volume
-  limit](infinite-volume-limit.md) shows Ising model correlation functions
-  converge as the lattice volume grows.
+- As a first application, [monotonicity and the infinite-volume limit](infinite-volume-limit.md)
+  shows Ising model correlation functions converge as the lattice volume grows.
 - The [ξ⁴ inequalities](xi4-inequalities.md) specialize to quartic
   interactions and give the Lebowitz inequalities, with
   [higher-order bounds](higher-order-correlation-bounds.md) following by
