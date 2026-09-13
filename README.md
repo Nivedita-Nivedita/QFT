@@ -27,7 +27,11 @@ directly onto this repository's books:
   framework (§3-4); Segal's alternative functorial axioms, targeted by
   **book 2**, are a rigorously-established alternative axiomatic framework
   for a genuinely interacting 2D CFT, relevant background for what
-  "axiomatic properties at least as strong as" a QFT should mean.
+  "axiomatic properties at least as strong as" a QFT should mean. See
+  [docs/axiom-systems-for-qft.md](docs/axiom-systems-for-qft.md) for how
+  Wightman, Osterwalder-Schrader, Glimm-Jaffe's own strengthening of it,
+  Haag-Kastler, and Segal's axioms relate to each other and to this
+  repository's books.
 - §6.5's lattice gauge theory and Balaban's renormalization-group program is
   the closest existing approach to the actual 4D Yang–Mills construction,
   a natural place to look when scoping **book 3**.
