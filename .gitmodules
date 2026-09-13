@@ -1,0 +1,3 @@
+[submodule "references/OSforGFF"]
+	path = references/OSforGFF
+	url = https://github.com/mrdouglasny/OSforGFF.git

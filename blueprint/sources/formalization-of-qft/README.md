@@ -18,6 +18,20 @@ using Claude Code, GPT Codex, and Gemini as coding assistants.
 
 Public GitHub repository, Apache License 2.0:
 [github.com/mrdouglasny/OSforGFF](https://github.com/mrdouglasny/OSforGFF).
+Cloned into this repository as a git submodule at `references/OSforGFF`,
+pinned to the commit checked out there.
+
+**Independently verified** (not just quoting the repo's own README): a
+direct `grep -rn "sorry\|admit\|^axiom \|native_decide\|unsafe \|extern "`
+over every `.lean` file outside `Legacy/` turns up zero real hits (the
+handful of matches are the words "admit"/"sorry" inside prose/comments,
+e.g. in `Guardrails.lean`'s own docstring explaining what it guards
+against) and a real line count of ~25,827. The repository also carries its
+own build-time enforcement of this (`OSforGFF/Guardrails.lean`, checked
+via `#guard_msgs` on every `lake build`) and a source-level script
+(`scripts/check-guardrails.sh`) — see `AXIOM_AUDIT.md` in the submodule.
+Note it pins `lean-toolchain` to `leanprover/lean4:v4.33.0-rc1` (a release
+candidate), one point release behind this project's `v4.33.1`.
 
 - Constructs the massive Gaussian Free Field as a probability measure on
   tempered distributions (via the Minlos theorem) and proves it satisfies

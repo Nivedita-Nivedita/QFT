@@ -7,11 +7,16 @@ in Lean 4. See
 for the paper, the `mrdouglasny/OSforGFF` repository it accompanies, and
 why it bears directly on this project's own [book 1](../glimm-jaffe/README.md).
 
-**Status: read, not yet acted on.** Unlike this project's other
-placeholder books, the formalization described here already exists,
-complete and public (Apache 2.0, zero `sorry`, zero extra axioms). There
-is no gap for this project to fill by re-doing that work. What remains is
-a genuine decision, not yet made:
+**Status: cloned and independently verified, not yet acted on.** Unlike
+this project's other placeholder books, the formalization described here
+already exists, complete and public. The code is now vendored into this
+repository as a git submodule at `references/OSforGFF`, and its "zero
+`sorry`, zero extra axioms" claim has been checked directly (not just
+quoted from its README) by grepping the actual source rather than trusting
+its own `AXIOM_AUDIT.md` alone — see
+[sources/formalization-of-qft/README.md](../../sources/formalization-of-qft/README.md)
+for what was checked. There is no gap for this project to fill by re-doing
+that work. What remains is a genuine decision, not yet made:
 
 1. **Study it as a methodology reference** for this project's own
    still-coarse [covariance-operators](../glimm-jaffe/covariance-operators/README.md)
