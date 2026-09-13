@@ -17,6 +17,7 @@
 | Liouville: The DOZZ formula (paper [2]) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/dozz-formula/README.md); not yet split into leaf statements |
 | Liouville: Conformal bootstrap (paper [3]) | `DECOMPOSED` | [Chapter page](../roadmap/liouville-theory/conformal-bootstrap/README.md); not yet split into leaf statements |
 | Liouville: Segal's axioms (paper [4]) | `DECOMPOSED` | Target chapter; [chapter page](../roadmap/liouville-theory/segals-axioms/README.md); not yet split into leaf statements |
+| Quantum Fields and Strings (AMS, 2 vols) | `DECOMPOSED` | [Chapter page](../roadmap/quantum-fields-and-strings/README.md); scope not yet chosen, see that page's plan |
 
 <!-- AUTHORING NOTES — these comments are not published.
 
