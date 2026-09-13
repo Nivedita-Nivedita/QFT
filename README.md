@@ -72,6 +72,21 @@ lake exe cache get
 lake build
 ```
 
+## Proof-engineering tooling
+
+This repo's `.mcp.json` configures [lean-lsp-mcp](https://github.com/oOo0oOo/lean-lsp-mcp)
+(MIT), which gives an MCP-capable agent (e.g. Claude Code) live Lean goal
+states, diagnostics, and Mathlib lemma search — much faster than editing and
+running a full `lake build` per attempt. It should be picked up automatically
+by any MCP-aware client opened in this directory.
+
+The committed config points `command` at an absolute `uvx` path
+(`/Users/niveditavij/.local/bin/uvx`) rather than a bare `uvx`, because on
+the machine this was set up on, `~/.zshrc`/`~/.bash_profile`/`~/.config` are
+root-owned and don't get `uv`'s install directory onto `PATH` normally. On a
+different machine, replace that with a bare `"uvx"` (or wherever `uvx`
+resolves) if `command not found` errors show up.
+
 ## Validating the blueprint
 
 From an [AutoformBot](https://github.com/facebookresearch/autoform-bot)
