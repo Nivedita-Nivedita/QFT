@@ -103,7 +103,95 @@ theorem griffiths_monotone_in_coupling (H : FerromagneticHamiltonian ι)
 theorem ising_correlation_le_one (H : FerromagneticHamiltonian ι)
     (hIsing : IsIsingMeasure μ) (A : Monomial ι) :
     |expectation μ H (fun ξ => spinPow ξ A)| ≤ 1 := by
-  sorry
+  classical
+  -- Each single-spin measure is a genuine probability measure.
+  haveI hprob : ∀ i, IsProbabilityMeasure (μ i) := by
+    intro i
+    rw [hIsing i]
+    refine ⟨?_⟩
+    simp [Measure.add_apply, Measure.smul_apply, Measure.dirac_apply']
+    exact ENNReal.inv_two_add_inv_two
+  haveI : IsProbabilityMeasure (Measure.pi μ) := inferInstance
+  -- Each coordinate is `±1` almost everywhere.
+  have hcoord : ∀ i, ∀ᵐ ξ : (ι → ℝ) ∂(Measure.pi μ), ξ i = -1 ∨ ξ i = 1 := by
+    intro i
+    have hae : ∀ᵐ y : ℝ ∂(μ i), y = -1 ∨ y = 1 := by
+      rw [hIsing i]
+      have : ((2⁻¹ : ENNReal) • Measure.dirac (-1 : ℝ) +
+          (2⁻¹ : ENNReal) • Measure.dirac (1 : ℝ)) {y : ℝ | y = -1 ∨ y = 1}ᶜ = 0 := by
+        simp [Measure.add_apply, Measure.smul_apply, Measure.dirac_apply']
+      simpa [ae_iff] using this
+    exact (MeasureTheory.measurePreserving_eval μ i).quasiMeasurePreserving.tendsto_ae hae
+  have hall : ∀ᵐ ξ : (ι → ℝ) ∂(Measure.pi μ), ∀ i, ξ i = -1 ∨ ξ i = 1 :=
+    (Filter.eventually_all).2 hcoord
+  have hspin_le : ∀ᵐ ξ : (ι → ℝ) ∂(Measure.pi μ), ∀ B : Monomial ι, |spinPow ξ B| ≤ 1 := by
+    filter_upwards [hall] with ξ hξ B
+    have : ∀ i ∈ Finset.univ, |ξ i ^ B i| = 1 := by
+      intro i _
+      rcases hξ i with h | h <;> simp [h, abs_pow]
+    calc |spinPow ξ B| = |∏ i, ξ i ^ B i| := rfl
+      _ = ∏ i, |ξ i ^ B i| := by rw [Finset.abs_prod]
+      _ = ∏ _i ∈ Finset.univ, (1 : ℝ) := Finset.prod_congr rfl this
+      _ = 1 := by simp
+      _ ≤ 1 := le_refl 1
+  have hbound : ∀ᵐ ξ : (ι → ℝ) ∂(Measure.pi μ), |spinPow ξ A| ≤ 1 :=
+    hspin_le.mono fun ξ h => h A
+  -- `H.eval` is uniformly bounded on the Ising support.
+  set C : ℝ := ∑ B ∈ H.coupling.support, |H.coupling B| with hCdef
+  have hHeval : ∀ᵐ ξ : (ι → ℝ) ∂(Measure.pi μ), |H.eval ξ| ≤ C := by
+    filter_upwards [hspin_le] with ξ hξ
+    have heq : H.eval ξ = -(∑ B ∈ H.coupling.support, H.coupling B * spinPow ξ B) := by
+      simp [FerromagneticHamiltonian.eval, Finsupp.sum]
+    rw [heq, abs_neg]
+    calc |∑ B ∈ H.coupling.support, H.coupling B * spinPow ξ B|
+        ≤ ∑ B ∈ H.coupling.support, |H.coupling B * spinPow ξ B| :=
+          Finset.abs_sum_le_sum_abs _ _
+      _ = ∑ B ∈ H.coupling.support, |H.coupling B| * |spinPow ξ B| := by
+            simp [abs_mul]
+      _ ≤ ∑ B ∈ H.coupling.support, |H.coupling B| * 1 := by
+            refine Finset.sum_le_sum fun B _ => ?_
+            exact mul_le_mul_of_nonneg_left (hξ B) (abs_nonneg _)
+      _ = C := by simp [hCdef]
+  -- `H.eval`, and hence the Gibbs density, are continuous in `ξ`.
+  have hcont_eval : Continuous (fun ξ : (ι → ℝ) => H.eval ξ) := by
+    have : (fun ξ : (ι → ℝ) => H.eval ξ) =
+        fun ξ => -(∑ B ∈ H.coupling.support, H.coupling B * spinPow ξ B) := by
+      funext ξ; simp [FerromagneticHamiltonian.eval, Finsupp.sum]
+    rw [this]
+    simp only [spinPow]
+    fun_prop
+  have hcont_gibbs : Continuous (fun ξ : (ι → ℝ) => Real.exp (- H.eval ξ)) := by
+    exact Real.continuous_exp.comp hcont_eval.neg
+  have hae_gibbs : AEStronglyMeasurable (fun ξ : (ι → ℝ) => Real.exp (- H.eval ξ))
+      (Measure.pi μ) := hcont_gibbs.aestronglyMeasurable
+  have hgibbs_bound : ∀ᵐ ξ : (ι → ℝ) ∂(Measure.pi μ),
+      ‖Real.exp (- H.eval ξ)‖ ≤ Real.exp C := by
+    filter_upwards [hHeval] with ξ hξ
+    rw [Real.norm_eq_abs, abs_of_pos (Real.exp_pos _)]
+    have h1 : -C ≤ H.eval ξ := (abs_le.1 hξ).1
+    exact Real.exp_le_exp.2 (by linarith)
+  have hZ_integrable : Integrable (fun ξ : (ι → ℝ) => Real.exp (- H.eval ξ)) (Measure.pi μ) :=
+    Integrable.mono' (integrable_const (Real.exp C)) hae_gibbs hgibbs_bound
+  have hsupp : Function.support (fun ξ : (ι → ℝ) => Real.exp (- H.eval ξ)) = Set.univ := by
+    ext ξ; simp [Function.mem_support, (Real.exp_pos (- H.eval ξ)).ne']
+  have hZpos : 0 < partitionFunction μ H := by
+    rw [partitionFunction,
+      integral_pos_iff_support_of_nonneg (fun ξ => (Real.exp_pos _).le) hZ_integrable, hsupp]
+    simpa using measure_ne_zero_iff.2 (Set.univ_nonempty) |>.bot_lt
+  -- Assemble the bound: `|⟨spinPow · A⟩| = Z⁻¹ |I| ≤ 1` since `|I| ≤ Z`.
+  rw [expectation, abs_mul, abs_inv, abs_of_pos hZpos]
+  rw [inv_mul_le_iff₀ hZpos, mul_one]
+  have hnum_le : ∀ᵐ ξ : (ι → ℝ) ∂(Measure.pi μ),
+      ‖spinPow ξ A * Real.exp (- H.eval ξ)‖ ≤ Real.exp (- H.eval ξ) := by
+    filter_upwards [hbound] with ξ hξ
+    rw [norm_mul, Real.norm_eq_abs (Real.exp _), abs_of_pos (Real.exp_pos _)]
+    calc |spinPow ξ A| * Real.exp (- H.eval ξ) ≤ 1 * Real.exp (- H.eval ξ) :=
+          mul_le_mul_of_nonneg_right hξ (Real.exp_pos _).le
+      _ = Real.exp (- H.eval ξ) := one_mul _
+  calc |∫ ξ : (ι → ℝ), spinPow ξ A * Real.exp (- H.eval ξ) ∂(Measure.pi μ)|
+      ≤ ∫ ξ : (ι → ℝ), Real.exp (- H.eval ξ) ∂(Measure.pi μ) :=
+        norm_integral_le_of_norm_le hZ_integrable hnum_le
+    _ = partitionFunction μ H := rfl
 
 /-- A quartic single-spin measure `dμ_i = e^{-P_i(ξ_i)} dξ_i` with
 `P_i(x) = λ_i x^4 + σ_i x^2`, `0 < λ_i`, Glimm-Jaffe (4.3.1). -/

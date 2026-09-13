@@ -14,9 +14,10 @@ volume `Λ ↑ R^d` only increases certain couplings, so monotonicity together
 with this uniform upper bound gives convergence of the Ising model
 correlation functions `⟨ξ^B⟩` as `Λ ↑ R^d`.
 
-The couplings-monotonicity half and the Ising `≤ 1` bound are formalized
-(statement only) as `griffiths_monotone_in_coupling` and
-`ising_correlation_le_one` in `QuantumPhysicsLean/CorrelationInequalities.lean`.
+The couplings-monotonicity half is formalized (statement only, `sorry`-proved)
+as `griffiths_monotone_in_coupling`; the Ising `≤ 1` bound is formalized and
+**fully proved** as `ising_correlation_le_one`, both in
+`QuantumPhysicsLean/CorrelationInequalities.lean`.
 The convergence statement itself (Theorem 4.2.3) needs a family of
 Hamiltonians indexed by an increasing sequence of finite volumes and is not
 yet stated; this node is not marked `statement: formalized` until that is
