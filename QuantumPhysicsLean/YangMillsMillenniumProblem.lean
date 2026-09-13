@@ -114,4 +114,83 @@ theorem clustering_from_mass_gap
     ∃ K : ℝ, 0 < K ∧ ∀ x y : Fin 3 → ℝ, K ≤ ‖x - y‖ → ‖f x y‖ ≤ Real.exp (-C * ‖x - y‖) := by
   sorry
 
+/-!
+## The algebraic (Haag-Kastler) picture
+
+Everything above states the problem in the Wightman/Hilbert-space picture,
+matching the boxed statement in Jaffe-Witten §4 directly. The Haag-Kastler
+axioms (Glimm-Jaffe §6.1(ii), HK1-HK4; see `docs/axiom-systems-for-qft.md`)
+give a genuinely different, algebra-first formulation of "a quantum field
+theory," and restating existence-and-mass-gap in that language is a real
+extension beyond what the source document itself writes down.
+-/
+
+variable {Region G Aalg : Type*} [Preorder Region] [Group G] [MulAction G Region]
+  [CStarAlgebra Aalg]
+
+/-- A **Haag-Kastler net** of local observable algebras: to each region, a
+`*`-subalgebra of an ambient C*-algebra `Aalg` (HK1); the assignment is
+monotone (HK2, isotony) and the algebras of spacelike-separated regions
+commute (HK3, locality); a group `G` (standing for the Poincaré group)
+acts on both regions and `Aalg` by `*`-automorphisms compatibly with the
+net (HK4, covariance). -/
+structure HaagKastlerNet (Region G Aalg : Type*) [Preorder Region] [Group G]
+    [MulAction G Region] [CStarAlgebra Aalg] where
+  /-- HK1: the local algebra of each region. -/
+  alg : Region → StarSubalgebra ℂ Aalg
+  /-- HK2 (Isotony). -/
+  isotone : Monotone alg
+  /-- The spacelike-separation relation on regions. -/
+  spacelike : Region → Region → Prop
+  /-- HK3 (Locality). -/
+  locality : ∀ B₁ B₂, spacelike B₁ B₂ →
+    ∀ a ∈ alg B₁, ∀ b ∈ alg B₂, a * b = b * a
+  /-- The `*`-automorphism of `Aalg` implementing each group element. -/
+  sigma : G → (Aalg ≃⋆ₐ[ℂ] Aalg)
+  sigma_one : sigma 1 = StarAlgEquiv.refl ℂ Aalg
+  sigma_mul : ∀ g h, sigma (g * h) = (sigma h).trans (sigma g)
+  /-- HK4 (Covariance): `σ_g` carries the algebra of `B` onto that of `g • B`. -/
+  covariant : ∀ (g : G) (B : Region) (a : Aalg), a ∈ (alg B : Set Aalg) ↔
+    sigma g a ∈ (alg (g • B) : Set Aalg)
+
+variable {timeMap : ℝ →* G}
+
+/-- A **covariant representation** of a Haag-Kastler net on a Hilbert
+space `𝓗`: a `*`-homomorphism of the ambient algebra into bounded
+operators, unitaries implementing the group action, a vacuum vector, and a
+Hamiltonian generating time translation among those unitaries via the
+ordinary (bounded-operator) exponential series `NormedSpace.exp`. Unlike
+`clustering_from_mass_gap`, this does not need Stone's theorem: `Ham` is
+given data whose relationship to `unitaries ∘ timeMap` is asserted, not
+derived from continuity of an abstract one-parameter group. -/
+structure HaagKastlerNet.CovariantRep (net : HaagKastlerNet Region G Aalg)
+    (timeMap : ℝ →* G) (𝓗 : Type*) [NormedAddCommGroup 𝓗] [InnerProductSpace ℂ 𝓗]
+    [CompleteSpace 𝓗] where
+  π : Aalg →⋆ₐ[ℂ] (𝓗 →L[ℂ] 𝓗)
+  Ham : 𝓗 →L[ℂ] 𝓗
+  vac : 𝓗
+  vacuum : IsVacuum Ham vac
+  unitaries : G → (𝓗 →L[ℂ] 𝓗)
+  unitary_covariant : ∀ g a, π (net.sigma g a) = unitaries g * π a * star (unitaries g)
+  time_generated : ∀ t : ℝ, unitaries (timeMap t) = NormedSpace.exp (((t : ℂ) * Complex.I) • Ham)
+
+/-- A Haag-Kastler net **has a mass gap** `Δ` (for a chosen time-translation
+subgroup `timeMap`) if it admits a covariant representation whose
+Hamiltonian has a mass gap of `Δ` in the sense already defined for the
+Wightman picture. -/
+def HaagKastlerNet.HasMassGap (net : HaagKastlerNet Region G Aalg)
+    (timeMap : ℝ →* G) (Δ : ℝ) : Prop :=
+  ∃ (𝓗 : Type) (_ : NormedAddCommGroup 𝓗) (_ : InnerProductSpace ℂ 𝓗) (_ : CompleteSpace 𝓗)
+    (rep : net.CovariantRep timeMap 𝓗), YangMillsMillenniumProblem.HasMassGap rep.Ham Δ
+
+/-- **The Yang-Mills Existence and Mass Gap problem, in the Haag-Kastler
+picture**: the algebraic counterpart of `yang_mills_existence_and_mass_gap`
+above. Necessarily `sorry`, for the same reason: this is the open
+Millennium Problem restated, not a proof attempt. -/
+theorem yang_mills_existence_and_mass_gap_AQFT (G : Type*) [Group G] :
+    ∃ (Region Aalg : Type) (_ : Preorder Region) (_ : CStarAlgebra Aalg)
+      (_ : MulAction G Region) (net : HaagKastlerNet Region G Aalg)
+      (timeMap : ℝ →* G) (Δ : ℝ), net.HasMassGap timeMap Δ := by
+  sorry
+
 end QuantumPhysicsLean.YangMillsMillenniumProblem

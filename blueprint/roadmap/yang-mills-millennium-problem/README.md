@@ -17,6 +17,11 @@ project's other books). See
 3. [Clustering from a mass gap](clustering-theorem/README.md) — the one
    genuinely provable theorem the document states outright: a mass gap
    implies exponential decay of correlations.
+4. [The Haag-Kastler (algebraic) formulation](haag-kastler-formulation/README.md)
+   — unlike chapters 1-3, not a transcription of the problem statement's
+   own words: a genuine extension restating existence-and-mass-gap in the
+   Haag-Kastler/AQFT picture (a net of C*-algebras) rather than the
+   Wightman/Hilbert-space picture.
 
 Formalizing the conjecture precisely, and proving the one real theorem the
 document states, is real, checkable work — but it does not constitute
