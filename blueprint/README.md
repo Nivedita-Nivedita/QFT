@@ -1,4 +1,4 @@
-# QFT: mathematical quantum field theory, formalized
+# QFT — mathematical quantum field theory, formalized
 
 A multi-book Lean 4 / Mathlib formalization project, growing over time as
 books and papers are added. Each book gets its own chapter tree under
