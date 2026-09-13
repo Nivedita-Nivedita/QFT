@@ -22,6 +22,7 @@
 | Yang-Mills problem: axiomatic QFT (Jaffe-Witten §3-4, 6.2) | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/axiomatic-qft/README.md); not yet split into leaf statements |
 | Yang-Mills problem: the Millennium statement (§4) | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/millennium-statement/README.md); not yet split into leaf statements |
 | Yang-Mills problem: clustering from a mass gap (§5) | `DECOMPOSED` | [Chapter page](../roadmap/yang-mills-millennium-problem/clustering-theorem/README.md); not yet split into leaf statements |
+| Formalization of QFT (Douglas-Hoback-Mei-Nissim) | `DECOMPOSED` | [Chapter page](../roadmap/formalization-of-qft/README.md); read only, no action taken yet |
 
 <!-- AUTHORING NOTES — these comments are not published.
 

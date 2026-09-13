@@ -14,4 +14,11 @@ Boundary Conditions (166); 7.7 Covariance Operator Inequalities (166);
 7.8 More General Dirichlet Data (168); 7.9 Regularity of `C_B` (173);
 7.10 Reflection Positivity (177).
 
+**Before decomposing this chapter further**, see
+[Formalization of QFT](../../formalization-of-qft/README.md): the free
+covariance operator and reflection positivity for the `d`-dimensional free
+Euclidean field are already formalized, in Lean 4, with zero `sorry` and
+zero extra axioms, in `mrdouglasny/OSforGFF` (Apache 2.0). Reusing or
+studying that work directly is worth deciding before re-deriving it here.
+
 Not yet decomposed into formalizable statements.

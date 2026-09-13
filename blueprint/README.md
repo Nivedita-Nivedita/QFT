@@ -28,6 +28,12 @@ current list. As of this writing:
    see [sources/yang-mills-millennium-problem/](sources/yang-mills-millennium-problem/).
    Definitions fully proved; the conjecture and its one stated theorem are
    precisely formalized but necessarily `sorry`.
+6. **Formalization of QFT** — Douglas, Hoback, Mei, and Nissim's Lean 4
+   formalization of the free `d = 4` Euclidean QFT and its Glimm-Jaffe/OS
+   axioms; see
+   [sources/formalization-of-qft/](sources/formalization-of-qft/). Already
+   complete elsewhere (Apache 2.0, zero `sorry`); read and cross-linked
+   from book 1, no action taken yet.
 
 - [Roadmap](roadmap/README.md) — the book: chapters, statements, and their
   dependencies.

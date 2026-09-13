@@ -19,4 +19,10 @@ Infinitesimal Change of Covariance (210); 9.3 Quadratic Perturbations (211);
 9.4 Perturbative Renormalization (215); 9.5 Lattice Laplace and Covariance
 Operators (219); 9.6 Lattice Approximation of `P(φ)₂` Measures (225).
 
+**Note:** Douglas-Hoback-Mei-Nissim's [Formalization of QFT](../../formalization-of-qft/README.md)
+paper reports the paper's first author already making progress on
+formalizing exactly `P(φ)₂` (§9.6 above) as the natural next step beyond
+their completed free-field construction. Worth coordinating with, rather
+than duplicating, before this chapter is decomposed further.
+
 Not yet decomposed into formalizable statements.

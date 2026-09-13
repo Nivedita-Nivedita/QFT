@@ -24,6 +24,11 @@ milestone chapters.
    Millennium Problem statement itself: the axiomatic definitions, the
    conjecture (formalized, necessarily unproved), and the one theorem the
    document proves outright (mass gap implies clustering).
+6. [Formalization of QFT](formalization-of-qft/README.md) — Douglas,
+   Hoback, Mei, and Nissim's Lean 4 formalization of the free `d = 4`
+   Euclidean QFT and its Glimm-Jaffe/OS axioms (already complete,
+   Apache-2.0, zero `sorry`/zero extra axioms, in `mrdouglasny/OSforGFF`);
+   read and cross-linked from book 1, no action taken yet.
 
 More books and papers are added here over time; each gets its own chapter
 directory under `roadmap/`, its own `sources/` notes, and its own rows in
