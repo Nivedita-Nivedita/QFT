@@ -19,6 +19,10 @@ current list. As of this writing:
    two-volume AMS course; see
    [sources/quantum-fields-and-strings/](sources/quantum-fields-and-strings/).
    Scope not yet chosen.
+4. **Gauge theory and four-manifolds** — a reference library of eight
+   textbooks; see
+   [sources/gauge-theory-references/](sources/gauge-theory-references/).
+   No formalization target chosen.
 
 - [Roadmap](roadmap/README.md) — the book: chapters, statements, and their
   dependencies.

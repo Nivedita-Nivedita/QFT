@@ -15,6 +15,10 @@ milestone chapters.
 3. [Quantum Fields and Strings: A Course for Mathematicians](quantum-fields-and-strings/README.md)
    — the two-volume AMS course (Deligne, Etingof, Freed, Jeffrey, Kazhdan,
    Morgan, Morrison, Witten, eds.). Scope not yet chosen.
+4. [Gauge theory and four-manifolds: reference library](gauge-theory-references/README.md)
+   — eight standard textbooks (Hamilton; Sontz; Frankel; Naber; Donaldson-Kronheimer;
+   Freed-Uhlenbeck; Scorpan) catalogued for later use. No formalization
+   target chosen.
 
 More books and papers are added here over time; each gets its own chapter
 directory under `roadmap/`, its own `sources/` notes, and its own rows in

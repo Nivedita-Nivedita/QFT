@@ -14,6 +14,7 @@ being scoped to a single text.
 | [Glimm-Jaffe: Quantum Physics](blueprint/roadmap/glimm-jaffe/README.md) | Ch. 17, "The φ⁴ Critical Point" | Ch. 4 (correlation inequalities) has `sorry`-proved Lean statements; rest is coarse chapters |
 | [Liouville theory](blueprint/roadmap/liouville-theory/README.md) | Segal's axioms & conformal bootstrap for LCFT | Coarse chapters only |
 | [Quantum Fields and Strings](blueprint/roadmap/quantum-fields-and-strings/README.md) | Not yet chosen | Placeholder; see that page's plan |
+| [Gauge theory and four-manifolds](blueprint/roadmap/gauge-theory-references/README.md) | Not yet chosen | Reference library of 8 texts (Hamilton, Sontz, Frankel, Naber, Donaldson-Kronheimer, Freed-Uhlenbeck, Scorpan) |
 
 Each book's own README links its full chapter list, sources, and
 dependencies. Start at [`blueprint/README.md`](blueprint/README.md) for the
