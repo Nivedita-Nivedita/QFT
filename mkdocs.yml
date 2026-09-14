@@ -1,4 +1,4 @@
-site_name: "Glimm-Jaffe: Quantum Physics - phi^4 Theory"
+site_name: "QFT"
 # Without site_url mkdocs emits an empty <urlset> sitemap, so nothing on the
 # site is crawlable.
 site_url: "https://nivedita-nivedita.github.io/QFT/"
