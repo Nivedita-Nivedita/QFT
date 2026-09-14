@@ -7,6 +7,11 @@ and following the same blueprint conventions as
 papers are added over time as their own tracks, rather than this repository
 being scoped to a single text.
 
+The blueprint is published at
+**<https://nivedita-nivedita.github.io/QFT/>** — the same roadmap rendered
+with per-item status, dependency graphs, and permalinks into the Lean
+sources at each commit.
+
 ## Guiding problem
 
 Formalization priorities in this repository are guided by
@@ -51,8 +56,9 @@ directly onto this repository's books:
 | [Formalization of QFT](blueprint/roadmap/formalization-of-qft/README.md) | Douglas-Hoback-Mei-Nissim's free-field `d=4` OS/GJ-axiom formalization | Already complete elsewhere (Apache 2.0, `mrdouglasny/OSforGFF`, added as a git submodule); independently re-verified in this repo — fresh `lake build` (3863/3863 jobs) and `#print axioms` on its three top-level theorems each showing only `[propext, Classical.choice, Quot.sound]`, no `sorry` |
 
 Each book's own README links its full chapter list, sources, and
-dependencies. Start at [`blueprint/README.md`](blueprint/README.md) for the
-overall roadmap index.
+dependencies. Start at [the blueprint site](https://nivedita-nivedita.github.io/QFT/)
+for the overall roadmap index, or at [`blueprint/README.md`](blueprint/README.md)
+for that index as source.
 
 ## Adding a new book
 
