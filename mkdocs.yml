@@ -1,5 +1,8 @@
-site_name: "Glimm-Jaffe: Quantum Physics - phi^4 Theory"
-repo_url: ""
+site_name: "QFT"
+# Without site_url mkdocs emits an empty <urlset> sitemap, so nothing on the
+# site is crawlable.
+site_url: "https://nivedita-nivedita.github.io/QFT/"
+repo_url: "https://github.com/Nivedita-Nivedita/QFT"
 
 # `autoform render` writes this directory from blueprint/. The vault stays the
 # source of truth; everything here is regenerated.
